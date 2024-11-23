@@ -1,16 +1,14 @@
+import { Bangers } from "next/font/google";
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import { cn } from "@/lib/utils";
 import "./globals.css";
+import Navabr from "@/components/ui/navbar";
+import Providers from "@/components/providers";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+const bangers = Bangers({
+  weight: "400",
+  subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -24,12 +22,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
+    <html lang="en" className="light">
+      <Providers>
+        <body
+          className={`${(cn("grainy grainy min-h-screen antialiased"), bangers.className)}`}
+        >
+          <Navabr />
+          {children}
+        </body>
+      </Providers>
     </html>
   );
 }
