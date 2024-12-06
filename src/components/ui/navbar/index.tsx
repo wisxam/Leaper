@@ -1,7 +1,11 @@
 import MaxWidthWrapper from "@/components/maxWidthWrapper";
 import Link from "next/link";
 import { buttonVariants } from "../button";
-import { LoginLink, RegisterLink } from "@kinde-oss/kinde-auth-nextjs/server";
+import {
+  LoginLink,
+  RegisterLink,
+  LogoutLink,
+} from "@kinde-oss/kinde-auth-nextjs/server";
 import { ArrowRight } from "lucide-react";
 
 const Navabr = () => {
@@ -39,6 +43,14 @@ const Navabr = () => {
                 Get Started
                 <ArrowRight className="ml-1 h-5 w-5 duration-300 ease-in-out group-hover:translate-x-1" />
               </RegisterLink>
+              <LogoutLink
+                className={`group ${buttonVariants({
+                  size: "sm",
+                })}`}
+              >
+                Logout
+                <ArrowRight className="ml-1 h-5 w-5 duration-300 ease-in-out group-hover:translate-x-1" />
+              </LogoutLink>
             </>
           </div>
         </div>

@@ -10,7 +10,6 @@ type Props = {
 
 const ShinnyWrapperHeader = ({ children, className }: Props) => {
   const childrenRef = useRef<HTMLDivElement>(null);
-
   useEffect(() => {
     const childrenRefElement = childrenRef.current;
 
